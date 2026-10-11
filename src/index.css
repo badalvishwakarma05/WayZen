@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+}
+
+/* Accessible focus ring - WCAG 2.4.7 & 2.4.11 compliant */
+*:focus-visible {
+  outline: 3px solid #0284c7 !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 1px #ffffff !important;
+}
+
+/* High Contrast Mode */
+.high-contrast {
+  --bg-primary: #000000;
+  --text-primary: #ffffff;
+  --border-color: #ffffff;
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+.high-contrast *:focus-visible {
+  outline: 4px solid #facc15 !important;
+  outline-offset: 3px !important;
+}
+
+.high-contrast .bg-white,
+.high-contrast .bg-slate-50,
+.high-contrast .bg-slate-100 {
+  background-color: #121212 !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+.high-contrast .text-slate-600,
+.high-contrast .text-slate-500 {
+  color: #e2e8f0 !important;
+}
+
+/* Text Scaling multipliers */
+html.text-scale-100 {
+  font-size: 16px;
+}
+html.text-scale-125 {
+  font-size: 20px;
+}
+html.text-scale-150 {
+  font-size: 24px;
+}
+html.text-scale-200 {
+  font-size: 32px;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.reduced-motion *,
+.reduced-motion ::before,
+.reduced-motion ::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* Leaflet map accessible layer fix */
+.leaflet-container {
+  font-family: inherit;
+  z-index: 10;
+}
+
+/* 44px minimum touch target guarantee */
+button,
+a,
+input,
+select,
+[role="button"] {
+  min-height: 44px;
+}
